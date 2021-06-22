@@ -23,14 +23,14 @@ class MagWarehouseCrudController extends AbstractCrudController
     {
         return $actions
         ->update(Crud::PAGE_INDEX, Action::NEW,
-        fn (Action $action) =>  $action->setIcon('fa fa-plus')->addCssClass('btn btn-success'))
+        fn (Action $action) =>  $action->setLabel("Ajouter une demande")->setIcon('fa fa-plus')->addCssClass('btn btn-success'))
         ->add(Crud::PAGE_INDEX, Action::DETAIL)
         ->update(Crud::PAGE_INDEX, Action::EDIT,
-        fn (Action $action) =>  $action->setIcon('fa fa-edit')->addCssClass('btn btn-warning'))
+        fn (Action $action) =>  $action->setLabel("Modifier")->setIcon('fa fa-edit')->addCssClass('btn btn-warning'))
         ->update(Crud::PAGE_INDEX, Action::DETAIL,
-        fn (Action $action) =>  $action->setIcon('fa fa-eye')->addCssClass('btn btn-info'))
+        fn (Action $action) =>  $action->setLabel("Voir")->setIcon('fa fa-eye')->addCssClass('btn btn-info'))
         ->update(Crud::PAGE_INDEX, Action::DELETE,
-        fn (Action $action) =>  $action->setIcon('fa fa-trash')->addCssClass('btn btn-outline-danger'));
+        fn (Action $action) =>  $action->setLabel("Supprimer")->setIcon('fa fa-trash')->addCssClass('btn btn-outline-danger'));
     }
     public function configureFields(string $pageName): iterable
     {

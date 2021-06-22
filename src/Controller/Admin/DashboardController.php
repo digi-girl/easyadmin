@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\MagWarehouse;
+use App\Entity\Produit;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -29,6 +30,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linktoDashboard('Tableau de bord', 'fa fa-home');
         yield MenuItem::linkToCrud('Liste des demandes', 'fa fa-search',MagWarehouse::class);
+        yield MenuItem::linkToCrud('Demandes de produits', 'fa fa-product',Produit::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
