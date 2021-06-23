@@ -32,6 +32,11 @@ class MagWarehouseCrudController extends AbstractCrudController
         ->update(Crud::PAGE_INDEX, Action::DELETE,
         fn (Action $action) =>  $action->setLabel("Supprimer")->setIcon('fa fa-trash')->addCssClass('btn btn-outline-danger'));
     }
+    public function configureCrud(Crud $crud):Crud 
+    {
+        return $crud
+        ->setEntityLabelInPlural('Demande warehouse');
+    }
     public function configureFields(string $pageName): iterable
     {
         return [

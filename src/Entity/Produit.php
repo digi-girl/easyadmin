@@ -18,7 +18,7 @@ class Produit
     private $id;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string")
      */
     private $PhotoP;
 
@@ -97,7 +97,7 @@ class Produit
         return $this->id;
     }
 
-    public function getPhotoP()
+    public function getPhotoP():?string
     {
         return $this->PhotoP;
     }
@@ -113,7 +113,13 @@ class Produit
     {
         return $this->Logo;
     }
-
+    public function configureCrud(Crud $crud): Crud
+{
+    return $crud
+        // set this option if you prefer the page content to span the entire
+        // browser width, instead of the default design which sets a max width
+        ->renderContentMaximized();
+}
     public function setLogo(string $Logo): self
     {
         $this->Logo = $Logo;
