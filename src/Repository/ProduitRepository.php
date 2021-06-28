@@ -18,6 +18,15 @@ class ProduitRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Produit::class);
     }
+    /**
+     * @return int|mixed|string
+     */
+    public function countAllProduct()
+    {
+        $query=$this->createQueryBuilder('a');
+        $query->select('count(a.id) as value');
+        return $query->getQuery()->getOneOrNullResult();
+    }
 
     // /**
     //  * @return Produit[] Returns an array of Produit objects

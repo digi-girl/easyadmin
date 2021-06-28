@@ -92,6 +92,11 @@ class Produit
      */
     private $ValeurD;
 
+    /**
+     * @ORM\Column(type="blob")
+     */
+    private $LogoPhoto;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -279,6 +284,18 @@ class Produit
     public function setValeurD(float $ValeurD): self
     {
         $this->ValeurD = $ValeurD;
+
+        return $this;
+    }
+
+    public function getLogoPhoto()
+    {
+        return $this->LogoPhoto;
+    }
+
+    public function setLogoPhoto($LogoPhoto): self
+    {
+        $this->LogoPhoto = $LogoPhoto;
 
         return $this;
     }

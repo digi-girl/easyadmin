@@ -19,6 +19,16 @@ class MagWarehouseRepository extends ServiceEntityRepository
         parent::__construct($registry, MagWarehouse::class);
     }
 
+     /**
+     * @return int|mixed|string
+     */
+    public function countAllDemand()
+    {
+        $query=$this->createQueryBuilder('a');
+        $query->select('count(a.id) as value')->andWhere('a.statut = \'en cours\'');
+        return $query->getQuery()->getOneOrNullResult();
+    }
+
     // /**
     //  * @return MagWarehouse[] Returns an array of MagWarehouse objects
     //  */
